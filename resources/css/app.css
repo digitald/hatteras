@@ -25,6 +25,6 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-zinc-200, currentColor);
+    border-color: color-mix(in srgb, var(--color-inchiostro) 12%, transparent);
   }
 }

@@ -36,7 +36,7 @@ class Pagination
         $max = (int) $wp_query->max_num_pages;
         $links = self::generate_pagination_links($paged, $max);
 
-        echo '<nav aria-label="Page navigation"><ul class="mt-12 border-t border-light py-6 flex items-center justify-center gap-2">';
+        echo '<nav class="hatteras-pagination mt-12 pt-8 border-t border-inchiostro/10" aria-label="' . esc_attr__('Navigazione pagine', 'hatteras') . '"><ul class="flex items-center justify-center gap-1 py-6">';
 
         self::render_previous_link($paged, $links);
         self::render_page_links($paged, $links);
@@ -90,12 +90,12 @@ class Pagination
     private static function render_page_links(int $paged, array $links): void
     {
         foreach ($links as $link) {
-            $class = $paged === $link ? 'text-dark' : 'text-dark/60';
+            $class = $paged === $link ? 'current font-semibold text-oro' : 'text-inchiostro-soft hover:text-oro';
             printf(
-                '<li><a href="%s" class="%s px-4 mx-4">%s</a></li>',
+                '<li><a href="%s" class="%s px-3 py-1 !no-underline transition-colors">%s</a></li>',
                 esc_url(get_pagenum_link($link)),
                 esc_attr($class),
-                esc_html($link)
+                esc_html((string) $link)
             );
         }
     }

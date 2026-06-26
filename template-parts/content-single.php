@@ -1,21 +1,47 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <header class="mx-auto flex max-w-5xl flex-col text-center">
-        <h1 class="mt-6 text-5xl font-medium tracking-tight [text-wrap:balance] text-zinc-950 sm:text-6xl"><?php the_title(); ?></h1>
+    <header class="mx-auto max-w-3xl text-center cartouche">
+        <?php
+        $categories = get_the_category();
+        if ($categories):
+        ?>
+            <p class="category-label mb-3">
+                <?php echo esc_html($categories[0]->name); ?>
+            </p>
+        <?php endif; ?>
 
-        <?php if(! is_page()): ?>
-            <time datetime="<?php echo get_the_date( 'c' ); ?>" itemprop="datePublished" class="order-first text-sm text-zinc-950"><?php echo get_the_date(); ?></time>
+        <h1 class="text-3xl md:text-4xl font-semibold text-inchiostro [text-wrap:balance]">
+            <?php the_title(); ?>
+        </h1>
 
-            <p class="mt-6 text-sm font-semibold text-zinc-950">by <?php the_author(); ?></p>
+        <?php if (!is_page()): ?>
+            <p class="mt-4 meta-caps">
+                <time datetime="<?php echo esc_attr(get_the_date('c')); ?>" itemprop="datePublished">
+                    <?php echo esc_html(get_the_date()); ?>
+                </time>
+                <span aria-hidden="true"> · </span>
+                <?php echo esc_html(hatteras_reading_time()); ?>
+                <span aria-hidden="true"> · </span>
+                <?php the_author(); ?>
+            </p>
         <?php endif; ?>
     </header>
 
-    <?php if(has_post_thumbnail()): ?>
-        <div class="mt-10 sm:mt-20 mx-auto max-w-4xl rounded-4xl bg-light overflow-hidden">
-            <?php the_post_thumbnail('large', ['class' => 'aspect-16/10 w-full object-cover']); ?>
-        </div>
+    <?php if (has_post_thumbnail()): ?>
+        <figure class="mx-auto max-w-3xl mt-10 engraved-border overflow-hidden">
+            <?php the_post_thumbnail('large', ['class' => 'w-full object-cover']); ?>
+        </figure>
     <?php endif; ?>
 
-    <div class="entry-content mx-auto max-w-3xl mt-10 sm:mt-20">
+    <div class="entry-content drop-cap mx-auto max-w-3xl mt-10 md:mt-14">
         <?php the_content(); ?>
     </div>
+
+    <?php
+    wp_link_pages([
+        'before'      => '<nav class="mx-auto max-w-3xl mt-8 meta-caps" aria-label="' . esc_attr__('Pagine articolo', 'hatteras') . '"><p class="mb-2">' . esc_html__('Pagine:', 'hatteras') . '</p>',
+        'after'       => '</nav>',
+        'link_before' => '<span class="inline-block px-2">',
+        'link_after'  => '</span>',
+    ]);
+    ?>
 </article>

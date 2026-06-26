@@ -1,23 +1,25 @@
 {
-	"name": "tailpress",
-	"version": "5.0.0",
-	"description": "Boilerplate WordPress theme with Tailwind CSS.",
-	"author": "Jeffrey van Rossum",
+	"name": "hatteras",
+	"version": "1.0.0",
+	"description": "Tema blog WordPress ispirato al Capitano Hatteras. Basato su TailPress con Tailwind CSS.",
+	"author": "digitald",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/tailpress/tailpress"
+		"url": "https://github.com/digitald/hatteras.git"
 	},
-	"theme_uri": "https://github.com/tailpress/tailpress",
-	"author_uri": "https://tailpress.io",
-	"text_domain": "tailpress",
+	"theme_uri": "https://github.com/digitald/hatteras",
+	"author_uri": "https://github.com/digitald",
+	"text_domain": "hatteras",
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build"
+		"build": "vite build",
+		"optimize-map": "node scripts/optimize-map.mjs"
 	},
 	"devDependencies": {
+		"@tailwindcss/vite": "^4.0.0",
+		"sharp": "^0.35.2",
 		"tailwindcss": "^4.0.0",
-		"vite": "^6.3.2",
-		"@tailwindcss/vite": "^4.0.0"
+		"vite": "^6.3.2"
 	}
 }

@@ -6,3 +6,15 @@ alignright
 wp-block-button
 wp-caption
 wp-caption-text
+text-inchiostro
+text-inchiostro-soft
+text-oro
+text-percalina
+text-pergamena
+bg-nerofumo
+bg-inchiostro
+bg-pergamena
+border-inchiostro/10
+hover:text-oro
+hover:bg-inchiostro
+group-hover:text-oro
