@@ -4,6 +4,12 @@
 /vite.config.mjs
 /package.json
 /package-lock.json
+/_referenze_legacy
+/scripts
+/safelist.txt
+/CHANGELOG.md
+/README.MD
+/release
 /.fleet
 /.idea
 /.nova

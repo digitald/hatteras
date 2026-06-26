@@ -44,11 +44,13 @@ function hatteras_inline_styles(): void
 {
     $watermark = hatteras_asset('images/map-watermark.webp');
     $pole = hatteras_asset('images/map-pole-crop.webp');
+    $footer = hatteras_asset('images/background-footer.jpg');
 
     $css = sprintf(
-        ':root{--hatteras-map-watermark:url(%1$s);--hatteras-map-pole:linear-gradient(to bottom,color-mix(in srgb,var(--color-pergamena) 94%%,transparent),var(--color-pergamena)),url(%2$s);}.hatteras-watermark{background-image:linear-gradient(to bottom,var(--color-pergamena),color-mix(in srgb,var(--color-pergamena) 94%%,transparent)),var(--hatteras-map-watermark);}.hatteras-watermark-strong{background-image:linear-gradient(to bottom,var(--color-pergamena),color-mix(in srgb,var(--color-pergamena) 88%%,transparent)),var(--hatteras-map-watermark);}.hatteras-footer{background-image:linear-gradient(to top,var(--color-pergamena),color-mix(in srgb,var(--color-pergamena) 90%%,transparent)),var(--hatteras-map-watermark);}',
+        ':root{--hatteras-map-watermark:url(%1$s);--hatteras-map-pole:linear-gradient(to bottom,color-mix(in srgb,var(--color-pergamena) 94%%,transparent),var(--color-pergamena)),url(%2$s);--hatteras-map-footer:url(%3$s);}.hatteras-watermark{background-image:linear-gradient(to bottom,color-mix(in srgb,var(--color-pergamena) 72%%,transparent),color-mix(in srgb,var(--color-pergamena) 82%%,transparent)),var(--hatteras-map-watermark);}.hatteras-watermark-strong{background-image:linear-gradient(to bottom,color-mix(in srgb,var(--color-pergamena) 65%%,transparent),color-mix(in srgb,var(--color-pergamena) 78%%,transparent)),var(--hatteras-map-watermark);}',
         esc_url($watermark),
-        esc_url($pole)
+        esc_url($pole),
+        esc_url($footer)
     );
 
     wp_register_style('hatteras-map', false);
@@ -98,5 +100,19 @@ function tailpress(): TailPress\Framework\Theme
             ]
         ]));
 }
+
+function hatteras_register_sidebars(): void
+{
+    register_sidebar([
+        'name'          => __('Footer', 'hatteras'),
+        'id'            => 'footer',
+        'description'   => __('Area widget sopra il colophon del sito.', 'hatteras'),
+        'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="footer-widget__title">',
+        'after_title'   => '</h3>',
+    ]);
+}
+add_action('widgets_init', 'hatteras_register_sidebars');
 
 tailpress();

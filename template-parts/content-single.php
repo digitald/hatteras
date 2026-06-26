@@ -27,7 +27,7 @@
     </header>
 
     <?php if (has_post_thumbnail()): ?>
-        <figure class="mx-auto max-w-3xl mt-10 engraved-border overflow-hidden">
+        <figure class="mx-auto w-full max-w-3xl md:max-w-5xl mt-10 engraved-border overflow-hidden">
             <?php the_post_thumbnail('large', ['class' => 'w-full object-cover']); ?>
         </figure>
     <?php endif; ?>

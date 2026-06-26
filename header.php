@@ -54,7 +54,8 @@
                     <?php endif; ?>
                 </div>
 
-                <div id="primary-navigation" class="hidden md:flex flex-col md:flex-row md:items-center gap-6 md:gap-8 mt-4 md:mt-0 p-4 md:p-0 engraved-border md:border-0 md:outline-0">
+                <div id="primary-navigation" class="hidden md:flex flex-col md:flex-row md:items-center mt-4 md:mt-0 w-full md:w-auto">
+                    <div class="primary-navigation__panel engraved-border w-full md:w-auto flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
                     <nav class="hatteras-nav" aria-label="<?php esc_attr_e('Menu principale', 'hatteras'); ?>">
                         <?php if (current_user_can('administrator') && !has_nav_menu('primary')): ?>
                             <a href="<?php echo esc_url(admin_url('nav-menus.php')); ?>" class="text-sm text-inchiostro-soft">
@@ -74,6 +75,7 @@
                     </nav>
 
                     <div class="hatteras-search shrink-0"><?php get_search_form(); ?></div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,8 +13,10 @@
     <?php do_action('tailpress_content_after'); ?>
 
     <footer id="colophon" class="hatteras-footer mt-16" role="contentinfo">
-        <div class="container mx-auto py-10 md:py-12">
+        <div class="container mx-auto py-10 md:py-12 min-w-0 max-w-full">
             <?php do_action('tailpress_footer'); ?>
+
+            <?php get_template_part('template-parts/footer', 'widgets'); ?>
 
             <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-inchiostro-soft font-[family-name:var(--font-sans)]">
                 <p>

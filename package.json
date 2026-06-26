@@ -1,6 +1,6 @@
 {
 	"name": "hatteras",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Tema blog WordPress ispirato al Capitano Hatteras. Basato su TailPress con Tailwind CSS.",
 	"author": "digitald",
 	"repository": {
@@ -14,7 +14,9 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"optimize-map": "node scripts/optimize-map.mjs"
+		"optimize-map": "node scripts/optimize-map.mjs",
+		"screenshot": "node scripts/generate-screenshot.mjs",
+		"package": "node scripts/package-release.mjs"
 	},
 	"devDependencies": {
 		"@tailwindcss/vite": "^4.0.0",

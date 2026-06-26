@@ -1,8 +1,11 @@
 /node_modules
 /dist
 /vendor
+/release
 /.fleet
 /.idea
 /.nova
 /.vscode
 /.zed
+Thumbs.db
+.DS_Store
